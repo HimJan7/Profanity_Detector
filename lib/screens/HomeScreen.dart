@@ -8,6 +8,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:http_parser/http_parser.dart';
 
+const apiUrl =
+    'https://nsfw-images-detection-and-classification.p.rapidapi.com/adult-content-file';
+const apiKey = '7714d7cd12msh5daa162749f3d03p1c54fbjsn188d53b0c6bb';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -41,9 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       imageResult = 3;
     });
-    final apiUrl =
-        'https://nsfw-images-detection-and-classification.p.rapidapi.com/adult-content-file';
-    final apiKey = '7714d7cd12msh5daa162749f3d03p1c54fbjsn188d53b0c6bb';
 
     final request = http.MultipartRequest('POST', Uri.parse(apiUrl));
     request.headers.addAll({
@@ -69,12 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
           imageResult = 1;
         });
       }
-      print(imageResult);
     } else {
-      for (int i = 0; i < 20; i++) {
-        print('failed');
-      }
-      // handle error
       print('Request failed with status: ${response.statusCode}.');
     }
   }
