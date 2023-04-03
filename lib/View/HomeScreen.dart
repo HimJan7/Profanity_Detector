@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profanity_detector/constants.dart';
 import 'package:provider/provider.dart';
-import '../model/profanity_detector_model.dart';
+import 'package:profanity_detector/modelController/profanity_detector_model.dart';
 
 ProfanityDetectorModel FirstInstance = ProfanityDetectorModel();
 
